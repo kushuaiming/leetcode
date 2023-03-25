@@ -16,15 +16,24 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
+include(GoogleTest)
+
+# add_executable(
+#   1_two_sum
+#   1_two_sum.cc
+# )
+# target_link_libraries(
+#   1_two_sum
+#   GTest::gtest_main
+# )
+# gtest_discover_tests(1_two_sum)
 
 add_executable(
-  1_two_sum
-  1_two_sum.cc
+  455_assign_cookies
+  455_assign_cookies.cc
 )
 target_link_libraries(
-  1_two_sum
+  455_assign_cookies
   GTest::gtest_main
 )
-
-include(GoogleTest)
-gtest_discover_tests(1_two_sum)
+gtest_discover_tests(455_assign_cookies)
