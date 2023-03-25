@@ -18,15 +18,15 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
-# add_executable(
-#   1_two_sum
-#   1_two_sum.cc
-# )
-# target_link_libraries(
-#   1_two_sum
-#   GTest::gtest_main
-# )
-# gtest_discover_tests(1_two_sum)
+add_executable(
+  1_two_sum
+  1_two_sum.cc
+)
+target_link_libraries(
+  1_two_sum
+  GTest::gtest_main
+)
+gtest_discover_tests(1_two_sum)
 
 add_executable(
   455_assign_cookies

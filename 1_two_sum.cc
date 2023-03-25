@@ -28,21 +28,35 @@ std::vector<int> TwoSumV2(const std::vector<int> nums, int target) {
 }
 
 TEST(TwoSumTest, HandleNormalInput) {
-  std::vector<int> nums1 = {2, 7, 11, 15};
-  int target1 = 9;
-  std::vector<int> result1 = {0, 1};
-  EXPECT_EQ(TwoSum(nums1, target1), result1);
-  EXPECT_EQ(TwoSumV2(nums1, target1), result1);
+  std::vector<int> nums = {2, 7, 11, 15};
+  int target = 9;
+  std::vector<int> result = {0, 1};
+  EXPECT_EQ(TwoSum(nums, target), result);
 
-  std::vector<int> nums2 = {3, 2, 4};
-  int target2 = 6;
-  std::vector<int> result2 = {1, 2};
-  EXPECT_EQ(TwoSum(nums2, target2), result2);
-  EXPECT_EQ(TwoSumV2(nums2, target2), result2);
+  nums = {3, 2, 4};
+  target = 6;
+  result = {1, 2};
+  EXPECT_EQ(TwoSum(nums, target), result);
 
-  std::vector<int> nums3 = {3, 3};
-  int target3 = 6;
-  std::vector<int> result3 = {0, 1};
-  EXPECT_EQ(TwoSum(nums3, target3), result3);
-  EXPECT_EQ(TwoSumV2(nums3, target3), result3);
+  nums = {3, 3};
+  target = 6;
+  result = {0, 1};
+  EXPECT_EQ(TwoSum(nums, target), result);
+}
+
+TEST(TwoSumV2Test, HandleNormalInput) {
+  std::vector<int> nums = {2, 7, 11, 15};
+  int target = 9;
+  std::vector<int> result = {0, 1};
+  EXPECT_EQ(TwoSumV2(nums, target), result);
+
+  nums = {3, 2, 4};
+  target = 6;
+  result = {1, 2};
+  EXPECT_EQ(TwoSumV2(nums, target), result);
+
+  nums = {3, 3};
+  target = 6;
+  result = {0, 1};
+  EXPECT_EQ(TwoSumV2(nums, target), result);
 }
