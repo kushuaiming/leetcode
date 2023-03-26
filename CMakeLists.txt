@@ -39,14 +39,24 @@ include(GoogleTest)
 # gtest_discover_tests(135_candy)
 
 add_executable(
-  435_non_overlapping_intervals
-  435_non_overlapping_intervals.cc
+  167_two_sum_II
+  167_two_sum_II.cc
 )
 target_link_libraries(
-  435_non_overlapping_intervals
+  167_two_sum_II
   GTest::gtest_main
 )
-gtest_discover_tests(435_non_overlapping_intervals)
+gtest_discover_tests(167_two_sum_II)
+
+# add_executable(
+#   435_non_overlapping_intervals
+#   435_non_overlapping_intervals.cc
+# )
+# target_link_libraries(
+#   435_non_overlapping_intervals
+#   GTest::gtest_main
+# )
+# gtest_discover_tests(435_non_overlapping_intervals)
 
 # add_executable(
 #   455_assign_cookies
