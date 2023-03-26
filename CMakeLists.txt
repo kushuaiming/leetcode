@@ -28,15 +28,25 @@ include(GoogleTest)
 # )
 # gtest_discover_tests(1_two_sum)
 
+# add_executable(
+#   135_candy
+#   135_candy.cc
+# )
+# target_link_libraries(
+#   135_candy
+#   GTest::gtest_main
+# )
+# gtest_discover_tests(135_candy)
+
 add_executable(
-  135_candy
-  135_candy.cc
+  435_non_overlapping_intervals
+  435_non_overlapping_intervals.cc
 )
 target_link_libraries(
-  135_candy
+  435_non_overlapping_intervals
   GTest::gtest_main
 )
-gtest_discover_tests(135_candy)
+gtest_discover_tests(435_non_overlapping_intervals)
 
 # add_executable(
 #   455_assign_cookies
