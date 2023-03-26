@@ -28,6 +28,16 @@ include(GoogleTest)
 # )
 # gtest_discover_tests(1_two_sum)
 
+add_executable(
+  88_merge_sorted_array
+  88_merge_sorted_array.cc
+)
+target_link_libraries(
+  88_merge_sorted_array
+  GTest::gtest_main
+)
+gtest_discover_tests(88_merge_sorted_array)
+
 # add_executable(
 #   135_candy
 #   135_candy.cc
@@ -38,15 +48,15 @@ include(GoogleTest)
 # )
 # gtest_discover_tests(135_candy)
 
-add_executable(
-  167_two_sum_II
-  167_two_sum_II.cc
-)
-target_link_libraries(
-  167_two_sum_II
-  GTest::gtest_main
-)
-gtest_discover_tests(167_two_sum_II)
+# add_executable(
+#   167_two_sum_II
+#   167_two_sum_II.cc
+# )
+# target_link_libraries(
+#   167_two_sum_II
+#   GTest::gtest_main
+# )
+# gtest_discover_tests(167_two_sum_II)
 
 # add_executable(
 #   435_non_overlapping_intervals
