@@ -52,23 +52,3 @@ gtest_discover_tests(88_merge_sorted_array)
 #   GTest::gtest_main
 # )
 # gtest_discover_tests(167_two_sum_II)
-
-# add_executable(
-#   435_non_overlapping_intervals
-#   435_non_overlapping_intervals.cc
-# )
-# target_link_libraries(
-#   435_non_overlapping_intervals
-#   GTest::gtest_main
-# )
-# gtest_discover_tests(435_non_overlapping_intervals)
-
-# add_executable(
-#   455_assign_cookies
-#   455_assign_cookies.cc
-# )
-# target_link_libraries(
-#   455_assign_cookies
-#   GTest::gtest_main
-# )
-# gtest_discover_tests(455_assign_cookies)
