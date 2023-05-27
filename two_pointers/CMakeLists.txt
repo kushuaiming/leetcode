@@ -23,15 +23,15 @@ include(GoogleTest)
 # )
 # gtest_discover_tests(1_two_sum)
 
-add_executable(
-  88_merge_sorted_array
-  88_merge_sorted_array.cc
-)
-target_link_libraries(
-  88_merge_sorted_array
-  GTest::gtest_main
-)
-gtest_discover_tests(88_merge_sorted_array)
+# add_executable(
+#   88_merge_sorted_array
+#   88_merge_sorted_array.cc
+# )
+# target_link_libraries(
+#   88_merge_sorted_array
+#   GTest::gtest_main
+# )
+# gtest_discover_tests(88_merge_sorted_array)
 
 # add_executable(
 #   135_candy
@@ -52,3 +52,8 @@ gtest_discover_tests(88_merge_sorted_array)
 #   GTest::gtest_main
 # )
 # gtest_discover_tests(167_two_sum_II)
+
+add_executable(
+  142_linked_list_cycle_II
+  142_linked_list_cycle_II.cc
+)
