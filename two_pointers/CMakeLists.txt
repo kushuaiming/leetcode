@@ -54,6 +54,6 @@ include(GoogleTest)
 # gtest_discover_tests(167_two_sum_II)
 
 add_executable(
-  142_linked_list_cycle_II
-  142_linked_list_cycle_II.cc
+  76_minimum_window_substring
+  76_minimum_window_substring.cc
 )
