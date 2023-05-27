@@ -42,3 +42,8 @@ include(GoogleTest)
 #   GTest::gtest_main
 # )
 # gtest_discover_tests(455_assign_cookies)
+
+add_executable(
+  605_can_place_flowers
+  605_can_place_flowers.cc
+)
