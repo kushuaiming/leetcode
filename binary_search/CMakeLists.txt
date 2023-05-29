@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  69_sqrt_x
-  69_sqrt_x.cc
+  34_find_first_and_last_position_of_element_in_sorted_array
+  34_find_first_and_last_position_of_element_in_sorted_array.cc
 )
