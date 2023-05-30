@@ -5,6 +5,7 @@
 #include <limits>
 #include <vector>
 
+// [left, right]
 int BinarySearch(std::vector<int>& nums, int target, bool lower) {
   int left = 0;
   int right = static_cast<int>(nums.size()) - 1;
@@ -14,6 +15,23 @@ int BinarySearch(std::vector<int>& nums, int target, bool lower) {
     if (nums[mid] > target || (lower && nums[mid] >= target)) {
       right = mid - 1;
       answer = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return answer;
+}
+
+// [left, right)
+int BinarySearchV2(std::vector<int>& nums, int target, bool lower) {
+  int left = 0;
+  int right = nums.size();
+  int answer = static_cast<int>(nums.size());
+  while (left < right) {
+    int mid = (left + right) / 2;
+    if (nums[mid] > target || (lower && nums[mid] >= target)) {
+      answer = mid;
+      right = mid;
     } else {
       left = mid + 1;
     }
