@@ -1,6 +1,7 @@
 // 二分查找
 // 寻找left_index即为在数组中寻找第一个大于等于target的下标
 // 寻找right_index即为在数组中寻找第一个大于target的下标, 然后将下标减1
+// 在cpp标准库中有对应的lower_bound和upper_bound函数
 #include <iostream>
 #include <limits>
 #include <vector>
