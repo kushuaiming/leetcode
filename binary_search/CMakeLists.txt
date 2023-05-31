@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  34_find_first_and_last_position_of_element_in_sorted_array
-  34_find_first_and_last_position_of_element_in_sorted_array.cc
+  33_search_in_rotated_sorted_array
+  33_search_in_rotated_sorted_array.cc
 )
