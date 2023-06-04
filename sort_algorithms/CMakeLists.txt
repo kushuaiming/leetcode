@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  bubble_sort
-  bubble_sort.cc
+  selection_sort
+  selection_sort.cc
 )
