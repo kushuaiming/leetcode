@@ -16,3 +16,4 @@ The algorithms form [Leetcode](https://leetcode.cn/).
 ## 算法
 ### 二分查找Binary Search
 - 需要明确区间的开闭性, 左闭右开(满足C++/Python的语言习惯)或者左闭右闭(便于处理边界条件).
+- 直接用(right + left) / 2可能在计算加法时出现溢出, left + (right - left) / 2可以避免这种情况.
