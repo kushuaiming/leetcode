@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  quick_sort
-  quick_sort.cc
+  insertion_sort
+  insertion_sort.cc
 )
