@@ -11,7 +11,7 @@ The algorithms form [Leetcode](https://leetcode.cn/).
 - 返回的结果可以命名为result或者answer
 - 左右区间的命名可以从如下中选择
   - left / right
-  - start / end
+  - start(begin) / end
   - first / last
 ## 算法
 ### 二分查找Binary Search
