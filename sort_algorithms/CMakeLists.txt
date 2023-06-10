@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  selection_sort
-  selection_sort.cc
+  215_kth_largest_element_in_an_array
+  215_kth_largest_element_in_an_array.cc
 )
