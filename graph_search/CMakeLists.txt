@@ -3,6 +3,6 @@ project(graph_search)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  934_shortest_bridge
-  934_shortest_bridge.cc
+  94_binary_tree_inorder_traversal
+  94_binary_tree_inorder_traversal.cc
 )
