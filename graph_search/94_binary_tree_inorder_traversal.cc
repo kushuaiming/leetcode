@@ -28,8 +28,8 @@ std::vector<int> InorderTraversal(TreeNode* root) {
 }
 
 std::vector<int> InorderTraversalIteration(TreeNode* root) {
-  std::stack<TreeNode*> stack;
   std::vector<int> result;
+  std::stack<TreeNode*> stack;
   while (root != nullptr || !stack.empty()) {
     while (root != nullptr) {
       stack.push(root);
