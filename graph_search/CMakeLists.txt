@@ -3,6 +3,6 @@ project(graph_search)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  695_max_area_of_island
-  695_max_area_of_island.cc
+  547_friend_circles
+  547_friend_circles.cc
 )

@@ -1,5 +1,7 @@
 # LeetCode
 The algorithms form [Leetcode](https://leetcode.cn/).
+## 目标
+- 能够在25min之内完成中等难度的题目
 ## 原则
 - 重点在于理解并记忆现有的解题思路, 而不是自己想.
 - 关注算法本身的复杂度, 而不是打败了多少...的数据
