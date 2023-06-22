@@ -3,6 +3,6 @@ project(graph_search)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  547_friend_circles
-  547_friend_circles.cc
+  417_pacific_atlantic_water_flow
+  417_pacific_atlantic_water_flow.cc
 )
