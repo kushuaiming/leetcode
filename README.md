@@ -1,7 +1,7 @@
 # LeetCode
 The algorithms form [Leetcode](https://leetcode.cn/).
 ## 目标
-- 能够在25min之内完成中等难度的题目
+- 能够在**25min**之内完成中等难度的题目
 ## 原则
 - 重点在于理解并记忆现有的解题思路, 而不是自己想.
 - 关注算法本身的复杂度, 而不是打败了多少...的数据
@@ -23,3 +23,5 @@ The algorithms form [Leetcode](https://leetcode.cn/).
 ### 二分查找Binary Search
 - 需要明确区间的开闭性, 左闭右开(满足C++/Python的语言习惯)或者左闭右闭(便于处理边界条件).
 - 直接用(right + left) / 2可能在计算加法时出现溢出, left + (right - left) / 2可以避免这种情况.
+### 回溯法Backtracking
+- 一种通过探索所有可能的候选解来找出所有的解的算法. 如果候选解被确认不是一个解(或者至少不是最后一个解), 回溯算法会通过在上一步进行一些变化抛弃该解, 即回溯并且再次尝试.
