@@ -3,6 +3,6 @@ project(backingtracking)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  77_combination
-  77_combination.cc
+  79_word_search
+  79_word_search.cc
 )
