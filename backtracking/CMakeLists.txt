@@ -3,6 +3,6 @@ project(backingtracking)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  46_permutations
-  46_permutations.cc
+  77_combination
+  77_combination.cc
 )
