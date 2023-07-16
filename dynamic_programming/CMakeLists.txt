@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  70_climbing_stairs
-  70_climbing_stairs.cc
+  198_house_robber
+  198_house_robber.cc
 )
