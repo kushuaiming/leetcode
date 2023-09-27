@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  413_arithmetic_slices
-  413_arithmetic_slices.cc
+  64_minimum_path_sum
+  64_minimum_path_sum.cc
 )
