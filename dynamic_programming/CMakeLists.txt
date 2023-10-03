@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  64_minimum_path_sum
-  64_minimum_path_sum.cc
+  542_01_matrix
+  542_01_matrix.cc
 )
