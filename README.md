@@ -37,3 +37,10 @@ The algorithms form [Leetcode](https://leetcode.cn/).
 - 解决动态规划问题的关键是找到`状态转移方程`
 - 可以对动态规划进行`空间压缩`
 - 命名: 数组的命名用dp; 经常会用到当前位置cur, 前面一个位置pre. 如果需要多个前面的位置可以命名为pre1, pre2...
+### 广度优先搜索Breadth-First Search
+- 命名: 可以预先定义一个数组用来表示查找的方向:
+```
+const std::vector<std::vector<int>> directions = {
+    {1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+```
+- 命名: 表示已经访问过的地方: `std::vector<std::vector<int>> is_visited;`
