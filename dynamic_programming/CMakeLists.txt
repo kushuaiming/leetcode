@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  542_01_matrix
-  542_01_matrix.cc
+  91_decode_ways
+  91_decode_ways.cc
 )
