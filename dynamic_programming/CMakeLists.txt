@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  300_longest_increasing_subsequence
-  300_longest_increasing_subsequence.cc
+  1143_longest_common_subsequence
+  1143_longest_common_subsequence.cc
 )
