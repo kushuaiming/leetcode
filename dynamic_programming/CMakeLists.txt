@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  91_decode_ways
-  91_decode_ways.cc
+  300_longest_increasing_subsequence
+  300_longest_increasing_subsequence.cc
 )
