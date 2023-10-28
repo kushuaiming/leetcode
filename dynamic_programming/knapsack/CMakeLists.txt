@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  knapsack
-  knapsack.cc
+  416_partion_equal_subset_sum
+  416_partion_equal_subset_sum.cc
 )
