@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  384_shuffle_an_array
-  384_shuffle_an_array.cc
+  528_random_pick_with_weight
+  528_random_pick_with_weight.cc
 )
