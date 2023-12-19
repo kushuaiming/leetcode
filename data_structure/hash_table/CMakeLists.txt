@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  128_longest_consecutive_sequence
-  128_longest_consecutive_sequence.cc
+  332_reconstruct_itinerary
+  332_reconstruct_itinerary.cc
 )
