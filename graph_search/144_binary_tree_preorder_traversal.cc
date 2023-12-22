@@ -43,6 +43,27 @@ std::vector<int> PreorderTraversalIteration(TreeNode* root) {
   return result;
 }
 
+std::vector<int> PreorderTraversalIteration2(TreeNode* root) {
+  std::vector<int> result;
+  if (!root) {
+    return result;
+  }
+  std::stack<TreeNode*> stack;
+  stack.push(root);
+  while (!stack.empty()) {
+    TreeNode* node = stack.top();
+    stack.pop();
+    result.push_back(node->value);
+    if (node->right) {
+      stack.push(node->right);
+    }
+    if (node->left) {
+      stack.push(node->left);
+    }
+  }
+  return result;
+}
+
 int main(int argc, char* argv[]) {
   TreeNode* node_1 = new TreeNode(1);
   TreeNode* node_2 = new TreeNode(2);
