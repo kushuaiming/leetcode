@@ -1,15 +1,8 @@
+#include <iostream>
 #include <unordered_map>
 #include <vector>
 
-struct TreeNode {
-  int val;
-  TreeNode* left;
-  TreeNode* right;
-  TreeNode() : val(0), left(nullptr), right(nullptr) {}
-  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right)
-      : val(x), left(left), right(right) {}
-};
+#include "tree_node.h"
 
 std::unordered_map<int, int> index;
 // 注意函数参数的选择. [preorder_left, preorder_right], [inorder_left,
@@ -22,6 +15,7 @@ TreeNode* BuildTree(const std::vector<int>& preorder,
     return nullptr;
   }
   const int root_val = preorder[preorder_left];
+  std::cout << "root_val: " << root_val << std::endl;
   TreeNode* root = new TreeNode(root_val);
   const int root_index = index[root_val];
   const int left_node_count = root_index - inorder_left;
@@ -41,4 +35,11 @@ TreeNode* BuildTree(const std::vector<int>& preorder,
   }
   return BuildTree(preorder, inorder, 0, preorder.size() - 1, 0,
                    inorder.size() - 1);
+}
+
+int main(int argc, char* argv[]) {
+  std::vector<int> preorder = {3, 9, 20, 15, 7};
+  std::vector<int> inorder = {9, 3, 15, 20, 7};
+  TreeNode* root = BuildTree(preorder, inorder);
+  return 0;
 }
