@@ -3,11 +3,11 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  105_construct_binary_tree_from_preorder_and_inorder_traversal
-  105_construct_binary_tree_from_preorder_and_inorder_traversal.cc tree_node.cc
+  208_implement_trie
+  trie/208_implement_trie.cc tree_node.cc
 )
 
-target_include_directories(105_construct_binary_tree_from_preorder_and_inorder_traversal
+target_include_directories(208_implement_trie
     PRIVATE 
         ${PROJECT_SOURCE_DIR}
 )
