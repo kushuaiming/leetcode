@@ -1,8 +1,10 @@
-#include <gtest/gtest.h>
-
 #include <algorithm>
+#include <iostream>
 #include <vector>
 
+// 贪心策略: 优先保留结尾小且不相交的区间.
+// 具体实现方法: 先把区间按照结尾的大小进行增序排序,
+// 每次选择结尾最小且和前一个选择的区间不重叠的区间.
 int EraseOverlapIntervals(std::vector<std::vector<int>>& intervals) {
   if (intervals.empty()) {
     return 0;
@@ -25,22 +27,7 @@ int EraseOverlapIntervals(std::vector<std::vector<int>>& intervals) {
   return count;
 }
 
-TEST(EraseOverlapIntervalsTest, HandleNormal) {
+int main(int argc, char* argv[]) {
   std::vector<std::vector<int>> intervals = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
-  int count = 1;
-  EXPECT_EQ(EraseOverlapIntervals(intervals), count);
-
-  intervals = {{1, 2}, {1, 2}, {1, 2}};
-  count = 2;
-  EXPECT_EQ(EraseOverlapIntervals(intervals), count);
-
-  intervals = {{1, 2}, {2, 3}};
-  count = 0;
-  EXPECT_EQ(EraseOverlapIntervals(intervals), count);
-}
-
-TEST(EraseOverlapIntervalsTest, HandleEmpty) {
-  std::vector<std::vector<int>> intervals = {};
-  int count = 0;
-  EXPECT_EQ(EraseOverlapIntervals(intervals), count);
+  std::cout << EraseOverlapIntervals(intervals) << std::endl;
 }

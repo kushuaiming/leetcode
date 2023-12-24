@@ -8,6 +8,10 @@ add_executable(
   135_candy.cc
 )
 add_executable(
+  435_non_overlapping_intervals
+  435_non_overlapping_intervals.cc
+)
+add_executable(
   455_assign_cookies
   455_assign_cookies.cc
 )
