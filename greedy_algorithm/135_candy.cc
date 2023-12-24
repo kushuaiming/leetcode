@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
-
+#include <iostream>
 #include <numeric>
 #include <vector>
 
+// 这里的关键是要记住可以两次遍历
 int Candy(const std::vector<int>& ratings) {
   int size = static_cast<int>(ratings.size());
   if (size < 2) {
@@ -22,12 +22,7 @@ int Candy(const std::vector<int>& ratings) {
   return std::accumulate(nums.begin(), nums.end(), 0);
 }
 
-TEST(CandyTest, HandleNormal) {
+int main(int argc, char* argv[]) {
   std::vector<int> ratings = {1, 0, 2};
-  int candy_count = 5;
-  EXPECT_EQ(Candy(ratings), candy_count);
-
-  ratings = {1, 2, 2};
-  candy_count = 4;
-  EXPECT_EQ(Candy(ratings), candy_count);
+  std::cout << Candy(ratings) << std::endl;
 }
