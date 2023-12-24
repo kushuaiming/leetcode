@@ -7,42 +7,66 @@
 #include <vector>
 
 // [left, right]
-int BinarySearch(std::vector<int>& nums, int target, bool lower) {
+int lower_bound(std::vector<int>& nums, int target) {
   int left = 0;
-  int right = static_cast<int>(nums.size()) - 1;
-  int answer = static_cast<int>(nums.size());
+  int right = nums.size() - 1;
   while (left <= right) {
-    int mid = (left + right) / 2;
-    if (nums[mid] > target || (lower && nums[mid] >= target)) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] >= target) {
       right = mid - 1;
-      answer = mid;
     } else {
       left = mid + 1;
     }
   }
-  return answer;
+  return left;
+}
+
+int upper_bound(std::vector<int>& nums, int target) {
+  int left = 0;
+  int right = nums.size() - 1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] > target) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return left - 1;
 }
 
 // [left, right)
-int BinarySearchV2(std::vector<int>& nums, int target, bool lower) {
+int lower_bound2(std::vector<int>& nums, int target) {
   int left = 0;
   int right = nums.size();
-  int answer = static_cast<int>(nums.size());
   while (left < right) {
-    int mid = (left + right) / 2;
-    if (nums[mid] > target || (lower && nums[mid] >= target)) {
-      answer = mid;
+    int mid = left + (right - left) / 2;
+    if (nums[mid] >= target) {
       right = mid;
     } else {
       left = mid + 1;
     }
   }
-  return answer;
+  return left;
+}
+
+int upper_bound2(std::vector<int>& nums, int target) {
+  int left = 0;
+  int right = nums.size();
+  while (left < right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] > target) {
+      right = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return left - 1;
 }
 
 std::vector<int> SearchRange(std::vector<int>& nums, int target) {
-  int left_index = BinarySearch(nums, target, true);
-  int right_index = BinarySearch(nums, target, false) - 1;
+  int left_index = lower_bound(nums, target);
+  int right_index = upper_bound(nums, target);
   if (left_index <= right_index && right_index < nums.size() &&
       nums[left_index] == target && nums[right_index] == target) {
     return std::vector<int>{left_index, right_index};
