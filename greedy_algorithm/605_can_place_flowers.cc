@@ -11,6 +11,7 @@
 #include <vector>
 
 // 维护prev表示上一朵已经种植花的位置, 初始时prev = -1, 表示尚未遇到已经种植的花
+// 难点在于公式的推导.
 bool CanPlaceFlowers(const std::vector<int>& flowerbed, int n) {
   int prev = -1;
   int num_place_flowers = 0;
