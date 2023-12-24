@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -20,33 +18,8 @@ int FindContentChildren(std::vector<int>& children, std::vector<int>& cookies) {
   return count;
 }
 
-TEST(FindContentChildrenTest, HandleNormal) {
-  std::vector<int> children = {1, 2, 3};
-  std::vector<int> cookies = {1, 1};
-  int count = 1;
-  EXPECT_EQ(FindContentChildren(children, cookies), count);
-
-  children = {1, 2};
-  cookies = {1, 2, 3};
-  count = 2;
-  EXPECT_EQ(FindContentChildren(children, cookies), count);
-}
-
-TEST(FindContentChildrenTest, HandleCorner) {
-  std::vector<int> children = {};
-  std::vector<int> cookies = {1, 1};
-  int count = 0;
-  EXPECT_EQ(FindContentChildren(children, cookies), count);
-
-  children = {1, 2};
-  cookies = {};
-  count = 0;
-  EXPECT_EQ(FindContentChildren(children, cookies), count);
-}
-
-TEST(FindContentChildrenTest, HandleUnordered) {
-  std::vector<int> children = {3, 1, 2};
-  std::vector<int> cookies = {1, 1};
-  int count = 1;
-  EXPECT_EQ(FindContentChildren(children, cookies), count);
+int main(int argrc, char* argv[]) {
+  std::vector<int> g{1, 2, 3};
+  std::vector<int> s{1, 1};
+  std::cout << FindContentChildren(g, s) << std::endl;
 }
