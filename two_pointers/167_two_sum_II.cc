@@ -1,5 +1,4 @@
-#include <gtest/gtest.h>
-
+#include <iostream>
 #include <vector>
 
 std::vector<int> TwoSum(const std::vector<int>& numbers, int target) {
@@ -20,9 +19,12 @@ std::vector<int> TwoSum(const std::vector<int>& numbers, int target) {
   return {};
 }
 
-TEST(TwoSumTest, HandleNormal) {
+int main(int argc, char* argv[]) {
   std::vector<int> numbers = {2, 7, 11, 15};
   int target = 9;
-  std::vector<int> result = {1, 2};
-  EXPECT_EQ(TwoSum(numbers, target), result);
+  std::vector<int> results = TwoSum(numbers, target);
+  for (int result : results) {
+    std::cout << result << std::endl;
+  }
+  return 0;
 }
