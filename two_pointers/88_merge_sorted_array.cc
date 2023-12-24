@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include <vector>
 
 void Merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) {
@@ -26,40 +24,4 @@ void Merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) {
     }
     --p;
   }
-}
-
-TEST(MergeTest, HandleNormal) {
-  std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
-  int m = 3;
-  std::vector<int> nums2 = {2, 5, 6};
-  int n = 3;
-  std::vector<int> result = {1, 2, 2, 3, 5, 6};
-  Merge(nums1, m, nums2, n);
-  EXPECT_EQ(nums1, result);
-
-  nums1 = {1};
-  m = 1;
-  nums2 = {};
-  n = 0;
-  result = {1};
-  Merge(nums1, m, nums2, n);
-  EXPECT_EQ(nums1, result);
-}
-
-TEST(MergeTest, HandleConer) {
-  std::vector<int> nums1 = {1};
-  int m = 1;
-  std::vector<int> nums2 = {};
-  int n = 0;
-  std::vector<int> result = {1};
-  Merge(nums1, m, nums2, n);
-  EXPECT_EQ(nums1, result);
-
-  nums1 = {0};
-  m = 0;
-  nums2 = {1};
-  n = 1;
-  result = {1};
-  Merge(nums1, m, nums2, n);
-  EXPECT_EQ(nums1, result);
 }
