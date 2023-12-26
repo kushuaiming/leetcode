@@ -71,38 +71,40 @@ std::vector<int> DiffWaysToComputeV2(const std::string& expression) {
   std::vector<int> ops;
   int num = 0;
   char op = ' ';
+  // 最后补一个'+', 方便解析, 不影响最终的结果.
   std::istringstream ss(expression + "+");
   while (ss >> num && ss >> op) {
     data.push_back(num);
     ops.push_back(op);
   }
-  int n = data.size();
+  const int n = data.size();
   std::vector<std::vector<std::vector<int>>> dp(
       n, std::vector<std::vector<int>>(n, std::vector<int>()));
   for (int i = 0; i < n; ++i) {
     for (int j = i; j >= 0; --j) {
       if (i == j) {
         dp[j][i].push_back(data[i]);
-      } else {
-        for (int k = j; k < i; ++k) {
-          for (auto left : dp[j][k]) {
-            for (auto right : dp[k + 1][i]) {
-              int val = 0;
-              switch (ops[k]) {
-                case '+':
-                  val = left + right;
-                  break;
-                case '-':
-                  val = left - right;
-                  break;
-                case '*':
-                  val = left * right;
-                  break;
-                default:
-                  break;
-              }
-              dp[j][i].push_back(val);
+        continue;
+      }
+      // 遍历从j到i之间的每一个字符, 计算左表达式和右表达式可能产生的结果.
+      for (int k = j; k < i; ++k) {
+        for (auto left : dp[j][k]) {
+          for (auto right : dp[k + 1][i]) {
+            int val = 0;
+            switch (ops[k]) {
+              case '+':
+                val = left + right;
+                break;
+              case '-':
+                val = left - right;
+                break;
+              case '*':
+                val = left * right;
+                break;
+              default:
+                break;
             }
+            dp[j][i].push_back(val);
           }
         }
       }
