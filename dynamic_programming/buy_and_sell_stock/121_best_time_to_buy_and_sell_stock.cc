@@ -3,8 +3,7 @@
 #include <limits>
 #include <vector>
 
-// 把自己代入一个: 可以每天观察和记录收益情况和可以无限反悔重买的情景
-// 关键是记录历史最低价
+// 只可以交易一次
 int MaxProfit(const std::vector<int>& prices) {
   int history_min_price = std::numeric_limits<int>::max();
   int max_profit = 0;
