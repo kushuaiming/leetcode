@@ -1,5 +1,8 @@
 #include <string>
 
+// 将10进制转化成7进制, 以字符串类型返回
+// 利用除法与取模来进行计算
+// 需要注意一些细节, 比如负数和零
 std::string ConvertToBase7(int num) {
   if (num == 0) {
     return "0";
@@ -10,10 +13,8 @@ std::string ConvertToBase7(int num) {
   }
   std::string ans;
   while (num > 0) {
-    const int a = num / 7;
-    const int b = num % 7;
-    ans = std::to_string(b) + ans;
-    num = a;
+    ans = std::to_string(num % 7) + ans;
+    num = num / 7;
   }
   return is_negative ? "-" + ans : ans;
 }
