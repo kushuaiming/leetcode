@@ -7,3 +7,7 @@ int TrailingZeroes(int n) {
   }
   return ans;
 }
+
+int TrailingZeroes2(int n) {
+  return n == 0 ? 0 : n / 5 + TrailingZeroes2(n / 5);
+}
