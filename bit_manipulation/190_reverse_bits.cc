@@ -1,3 +1,4 @@
+#include <bitset>
 #include <cstdint>
 #include <iostream>
 
@@ -22,15 +23,19 @@ uint32_t ReverseBitsV2(uint32_t n) {
   constexpr uint32_t M8 = 0x00ff00ff;  // 00000000111111110000000011111111
 
   // 优先级: (<< >>) & ^ |
-  n = n >> 1 & M1 | (n & M1) << 1; // 交换奇数位和偶数位
+  n = n >> 1 & M1 | (n & M1) << 1;  // 交换奇数位和偶数位
   n = n >> 2 & M2 | (n & M2) << 2;
   n = n >> 4 & M4 | (n & M4) << 4;
   n = n >> 8 & M8 | (n & M8) << 8;
-  return n >> 16 | n << 16;        // 交换左半边和右半边
+  return n >> 16 | n << 16;  // 交换左半边和右半边
 }
 
 int main(int argc, char* argv[]) {
   uint32_t n = 0b11111111111111111111111111111101;
-  std::cout << ReverseBits(n) << std::endl;
+  uint32_t reversed_n = ReverseBits(n);
+  std::cout << std::oct << reversed_n << std::endl;
+  std::cout << std::dec << reversed_n << std::endl;
+  std::cout << std::hex << reversed_n << std::endl;
+  std::cout << std::bitset<sizeof(reversed_n) * 8>(reversed_n) << std::endl;
   return 0;
 }
