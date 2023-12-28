@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stack>
 
-// 输入栈 & 输出栈
+// 关键: 输入栈 & 输出栈
 // 要通过一个额外栈翻转一次数组
 class MyQueue {
  public:
