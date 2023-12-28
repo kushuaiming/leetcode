@@ -11,6 +11,16 @@ int HammingDistance(int x, int y) {
   return ans;
 }
 
+int HammingDistance2(int x, int y) {
+  int diff = x ^ y;
+  int ans = 0;
+  while (diff) {
+    ++ans;
+    diff &= diff - 1;
+  }
+  return ans;
+}
+
 int main(int argc, char* argv[]) {
   std::cout << HammingDistance(1, 4) << std::endl;
   return 0;
