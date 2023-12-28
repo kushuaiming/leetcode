@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+// 利用位运算可以在O(1)的时间复杂度下判断两个单词是否含有公共字母
 int MaxProduct(const std::vector<std::string>& words) {
   std::vector<int> masks(words.size(), 0);
   for (int i = 0; i < words.size(); ++i) {
