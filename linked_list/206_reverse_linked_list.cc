@@ -19,8 +19,17 @@ ListNode* ReverseList(ListNode* head) {
   return new_head;
 }
 
+ListNode* ReverseList2(ListNode* head, ListNode* prev) {
+  if (head == nullptr) {
+    return head;
+  }
+  ListNode* next = head->next;
+  head->next = prev;
+  return ReverseList2(next, head);
+}
+
 // Iteration
-ListNode* ReverseList2(ListNode* head) {
+ListNode* ReverseList3(ListNode* head) {
   ListNode* prev = nullptr;
   ListNode* curr = head;
   while (curr) {
@@ -43,7 +52,7 @@ int main(int argc, char* argv[]) {
     std::cout << head->val << std::endl;
     head = head->next;
   }
-  ListNode* reverse_head = ReverseList2(&node1);
+  ListNode* reverse_head = ReverseList3(&node1);
   while (reverse_head) {
     std::cout << reverse_head->val << std::endl;
     reverse_head = reverse_head->next;
