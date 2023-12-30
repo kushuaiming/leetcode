@@ -1,19 +1,19 @@
 #include <iostream>
 #include <queue>
+#include <utility>
 #include <vector>
 
-// 注释: 会超时, 但是个人感觉没有问题.
+// 注释: 如果priority_queue中直接使用index会产生超时不让通过, 但是原理上没有问题.
 std::vector<int> MaxSlidingWindow(std::vector<int>& nums, int k) {
-  auto cmp = [=](int left, int right) { return nums[left] < nums[right]; };
-  std::priority_queue<int, std::vector<int>, decltype(cmp)> pq(cmp);
+  std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>> pq;
   std::vector<int> ans;
   for (int i = 0; i < static_cast<int>(nums.size()); ++i) {
-    pq.push(i);
-    while (!pq.empty() && pq.top() < i - k + 1) {
+    pq.push({nums[i], i});
+    while (!pq.empty() && pq.top().second < i - k + 1) {
       pq.pop();
     }
     if (i >= k - 1) {
-      ans.push_back(nums[pq.top()]);
+      ans.push_back(pq.top().first);
     }
   }
   return ans;
