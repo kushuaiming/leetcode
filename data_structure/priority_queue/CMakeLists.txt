@@ -3,6 +3,6 @@ project(my_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(
-  priority_queue
-  priority_queue.cc
+  218_the_sky_line_problem
+  218_the_sky_line_problem.cc
 )
