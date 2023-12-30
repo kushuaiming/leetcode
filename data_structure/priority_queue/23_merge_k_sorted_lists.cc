@@ -9,6 +9,7 @@ struct ListNode {
   ListNode(int val, ListNode* next) : val(val), next(next) {}
 };
 
+// 2023/12/30 可以想出思路, 但是实现有细节上的错误.
 ListNode* MergeKLists(std::vector<ListNode*>& lists) {
   if (lists.empty()) {
     return nullptr;
