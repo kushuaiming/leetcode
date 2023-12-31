@@ -20,11 +20,15 @@ The algorithms form [Leetcode](https://leetcode.cn/).
 ### 注意事项
 - 边界条件要再三确认, >= > == < <= 和 +1 -1等
 ### 命名
-- 返回的结果可以命名为result或者answer
+- 返回的结果可以命名为 res(result)或者 ans(answer).
 - 左右区间的命名可以从如下中选择
   - left / right
-  - start(begin) / end
+  - begin(start) / end
   - first / last
+- 表示已经访问过的地方
+  - 当前位置 cur(current)
+  - 上一个位置 prev(previous)
+  - 下一个位置 next
 ## 算法
 ### 二分查找Binary Search
 - 需要明确区间的开闭性, 左闭右开(满足C++/Python的语言习惯)或者左闭右闭(便于处理边界条件).
