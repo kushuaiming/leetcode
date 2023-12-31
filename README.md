@@ -29,6 +29,13 @@ The algorithms form [Leetcode](https://leetcode.cn/).
   - 当前位置 cur(current)
   - 上一个位置 prev(previous)
   - 下一个位置 next
+- 临时变量命名为 temp(temporary)
+- 常用缩写
+  - c(char)
+  - q(queue)
+  - s(stack)
+  - pq(priority_queue)
+- 取数组里面的数可以去除s来命名, 比如 std::vector<int> nums; for(int num : nums) {}
 ## 算法
 ### 二分查找Binary Search
 - 需要明确区间的开闭性, 左闭右开(满足C++/Python的语言习惯)或者左闭右闭(便于处理边界条件).
