@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+// 关键: 用一个 vector 模拟栈, 这样方便对最后一个数进行计算.
 int Calculate(const std::string& s) {
   std::vector<int> stk;
   char pre_sign = '+';
