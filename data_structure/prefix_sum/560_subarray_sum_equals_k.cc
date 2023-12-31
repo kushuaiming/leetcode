@@ -18,6 +18,8 @@ int SubarraySum(std::vector<int>& nums, int k) {
   return ans;
 }
 
+// 使用一个哈希表, key 是前缀和, value 是该前缀和出现的次数.
+// 假设当前的前缀和是 prefix_sum, 那么 hash_map[prefix_sum - k] 即以当前位置结尾, 满足条件的区间个数.
 int SubarraySum2(std::vector<int>& nums, int k) {
   int count = 0, prefix_sum = 0;
   std::unordered_map<int, int> hash_map;
