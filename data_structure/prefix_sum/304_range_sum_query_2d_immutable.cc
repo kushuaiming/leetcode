@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+// 2023/12/31: 在做了303的基础上可以自己写出来.
 class NumMatrix {
  public:
   NumMatrix(std::vector<std::vector<int>>& matrix)
