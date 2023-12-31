@@ -2,6 +2,8 @@
 #include <numeric>
 #include <vector>
 
+// 思路: 前缀和
+// 代码实现: 为了方便求差, prefix_sum_要在最开始放一个0.
 class NumArray {
  public:
   NumArray(std::vector<int>& nums) : prefix_sum_(nums.size() + 1, 0) {
