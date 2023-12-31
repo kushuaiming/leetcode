@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <vector>
 
+// 2023/12/31: 可以自己写出来.
 bool IsAnagram(const std::string& s, const std::string& t) {
   // 需要有不相等的判断.
   if (s.size() != t.size()) {
