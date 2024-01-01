@@ -36,3 +36,15 @@ ListNode* SwapPairs2(ListNode* head) {
   new_head->next = head;
   return new_head;
 }
+
+// 2024/01/01自己实现了一个类似但不完全同的递归版本.
+ListNode* SwapPairs3(ListNode* head) {
+  if (head == nullptr || head->next == nullptr) {
+    return head;
+  }
+  ListNode* prev = head;
+  head = head->next;
+  prev->next = SwapPairs3(head->next);
+  head->next = prev;
+  return head;
+}
