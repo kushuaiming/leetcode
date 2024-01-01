@@ -8,6 +8,7 @@ struct ListNode {
   ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+// 2024/01/01: 不看答案自己写出来了.
 // Recursion:
 ListNode* MergeTwoLists(ListNode* list1, ListNode* list2) {
   if (list1 == nullptr) {
