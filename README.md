@@ -26,7 +26,7 @@ The algorithms form [Leetcode](https://leetcode.cn/).
   - begin(start) / end
   - first / last
 - 表示已经访问过的地方
-  - 当前位置 cur(current)
+  - 当前位置 curr(current)
   - 上一个位置 prev(previous)
   - 下一个位置 next
 - 临时变量命名为 temp(temporary)
