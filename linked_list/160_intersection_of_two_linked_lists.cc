@@ -9,21 +9,14 @@ struct ListNode {
   ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+// 2024/01/01: 自己做出来了.
 // 双指针
 ListNode* GetIntersectionNode(ListNode* headA, ListNode* headB) {
   ListNode* head_a = headA;
   ListNode* head_b = headB;
   while (head_a != head_b) {
-    if (head_a) {
-      head_a = head_a->next;
-    } else {
-      head_a = headB;
-    }
-    if (head_b) {
-      head_b = head_b->next;
-    } else {
-      head_b = headA;
-    }
+    head_a = head_a ? head_a->next : headB;
+    head_b = head_b ? head_b->next : headA;
   }
   return head_a;
 }
