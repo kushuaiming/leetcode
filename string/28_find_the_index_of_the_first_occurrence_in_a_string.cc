@@ -14,7 +14,7 @@ int StrStr(const std::string& haystack, const std::string& needle) {
   return -1;
 }
 
-// TODO: 学习KMP的使用
+// KMP
 int StrStr2(std::string& s, std::string& p) {
   int n = s.size(), m = p.size();
   if (m == 0) return 0;
@@ -42,6 +42,37 @@ int StrStr2(std::string& s, std::string& p) {
     }
     if (j == m) {
       return i - m;
+    }
+  }
+  return -1;
+}
+
+// TODO(2024/01/01): 了解 KMP 细节问题.
+// KMP 官方解答, 算法的核心为前缀函数, pi(i).
+int StrStr3(std::string& haystack, std::string& needle) {
+  int n = haystack.size(), m = needle.size();
+  if (m == 0) {
+    return 0;
+  }
+  std::vector<int> pi(m);
+  for (int i = 1, j = 0; i < m; ++i) {
+    while (j > 0 && needle[i] != needle[j]) {
+      j = pi[j - 1];
+    }
+    if (needle[i] == needle[j]) {
+      ++j;
+    }
+    pi[i] = j;
+  }
+  for (int i = 0, j = 0; i < n; ++i) {
+    while (j > 0 && haystack[i] != needle[j]) {
+      j = pi[j - 1];
+    }
+    if (haystack[i] == needle[j]) {
+      ++j;
+    }
+    if (j == m) {
+      return i - m + 1;
     }
   }
   return -1;
