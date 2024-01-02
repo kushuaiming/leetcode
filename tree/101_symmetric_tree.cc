@@ -33,28 +33,25 @@ bool IsSymmetric(TreeNode* left, TreeNode* right) {
 }
 
 // Iteration:
-bool Check(TreeNode* u, TreeNode* v) {
+bool Check(TreeNode* left, TreeNode* right) {
   std::queue<TreeNode*> q;
-  q.push(u);
-  q.push(v);
-  while(!q.empty()) {
-    u = q.front();
+  q.push(left);
+  q.push(right);
+  while (!q.empty()) {
+    left = q.front();
     q.pop();
-    v = q.front();
+    right = q.front();
     q.pop();
-
-    if (!u && !v) {
+    if (!left && !right) {
       continue;
     }
-    if (!u || !v || u->val != v->val) {
+    if (!left || !right || left->val != right->val) {
       return false;
     }
-
-    q.push(u->left);
-    q.push(v->right);
-
-    q.push(u->right);
-    q.push(v->left);
+    q.push(left->left);
+    q.push(right->right);
+    q.push(left->right);
+    q.push(right->left);
   }
   return true;
 }
