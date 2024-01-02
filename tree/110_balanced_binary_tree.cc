@@ -35,7 +35,7 @@ int Height2(TreeNode* root) {
   const int right_height = Height2(root->right);
   if (left_height == -1 || right_height == -1 ||
       std::abs(left_height - right_height) > 1) {
-    return -1;
+    return -1;  // 使用-1表示该节点不平衡
   }
   return std::max(left_height, right_height) + 1;
 }
