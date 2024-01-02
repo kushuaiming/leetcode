@@ -10,7 +10,8 @@ struct TreeNode {
       : val(x), left(left), right(right) {}
 };
 
-int ans = 0;
+// 2024/01/02: 在做了110的前提下可以自己写出来.
+int res = 0;
 
 int Depth(TreeNode* root) {
   if (root == nullptr) {
@@ -18,11 +19,11 @@ int Depth(TreeNode* root) {
   }
   const int left_depth = Depth(root->left);
   const int right_depth = Depth(root->right);
-  ans = std::max(ans, left_depth + right_depth + 1);
+  res = std::max(res, left_depth + right_depth);
   return std::max(left_depth, right_depth) + 1;
 }
 
 int DiameterOfBinaryTree(TreeNode* root) {
   Depth(root);
-  return ans - 1;
+  return res - 1;
 }
