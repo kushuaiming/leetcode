@@ -11,7 +11,8 @@ struct TreeNode {
 // Recursion: 递归每个节点时, 需要分情况考虑
 // 1) 如果选取该节点加入路径, 则之后必须加入*连续*节点, 或停止加入节点.
 // 2) 如果不选取该节点加入路径, 则对其左右节点重新进行考虑.
-int PathSumStartWithRoot(TreeNode* root, int target_sum) {
+// 这里target_sum使用long, 因为节点里面的数可能很大
+int PathSumStartWithRoot(TreeNode* root, long target_sum) {
   if (root == nullptr) {
     return 0;
   }
