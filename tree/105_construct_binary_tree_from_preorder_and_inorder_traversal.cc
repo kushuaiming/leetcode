@@ -15,7 +15,6 @@ TreeNode* BuildTree(const std::vector<int>& preorder,
     return nullptr;
   }
   const int root_val = preorder[preorder_left];
-  std::cout << "root_val: " << root_val << std::endl;
   TreeNode* root = new TreeNode(root_val);
   const int root_index = index[root_val];
   const int left_node_count = root_index - inorder_left;
