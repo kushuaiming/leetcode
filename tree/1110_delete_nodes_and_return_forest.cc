@@ -12,6 +12,7 @@ struct TreeNode {
 };
 
 // 2023/12/21: 直接抄答案
+// 2024/01/02: 直接抄答案
 std::vector<TreeNode*> DelNodes(TreeNode* root, std::vector<int>& to_delete) {
   std::vector<TreeNode*> forest;
   std::unordered_set<int> dict(to_delete.begin(), to_delete.end());
