@@ -35,6 +35,7 @@ class BST {
     } else {
       t->right = Insert(t->right, x);
     }
+    return t;
   }
 
   TreeNode* Find(TreeNode* t, T x) {
@@ -73,6 +74,7 @@ class BST {
     } else if (x > t->val) {
       t->right = Remove(t->right, x);
     } else if (t->left && t->right) {
+      // 比较难想到的地方, 用换值的方式, 而不是直接删除指针的方式.
       temp = FindMin(t->right);
       t->val = temp->val;
       t->right = Remove(t->right, t->val);
