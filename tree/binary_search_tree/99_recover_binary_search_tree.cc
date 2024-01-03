@@ -2,6 +2,8 @@
 
 #include "tree_node.h"
 
+// 2024/01/03: 完全没有思路, 想不到用中序遍历.
+
 // 关键在于理解在一个递增序列中交换两个值, 会造成一个或者两个位置不满足升序条件.
 void RecoverTree(TreeNode* root) {
   TreeNode* mistake1 = nullptr;
@@ -15,9 +17,9 @@ void RecoverTree(TreeNode* root) {
   }
 }
 
-// 隐式中序遍历
-void Inorder(TreeNode* root, TreeNode* mistake1, TreeNode* mistake2,
-             TreeNode* prev) {
+// 隐式中序遍历, 注意要改变指针本身, 需要用到引用
+void Inorder(TreeNode* root, TreeNode*& mistake1, TreeNode*& mistake2,
+             TreeNode*& prev) {
   if (root == nullptr) {
     return;
   }
@@ -32,12 +34,11 @@ void Inorder(TreeNode* root, TreeNode* mistake1, TreeNode* mistake2,
       mistake2 = root;
     }
   }
-  prev = root;
+  prev = root; // 关键步骤: 记录中序遍历的上一个节点.
   if (root->right) {
     Inorder(root->right, mistake1, mistake2, prev);
   }
 }
-
 
 void RecoverTree2(TreeNode* root) {
   std::vector<TreeNode*> inorder_results;
