@@ -2,6 +2,8 @@
 #include <queue>
 #include <vector>
 
+// 2024/01/03: 直接抄答案.
+
 enum class NodeStatus {
   kUnvisited,
   kSearching,
@@ -59,6 +61,7 @@ std::vector<int> FindOrder(int num_course,
   return result;
 }
 
+// 感觉BFS更简单, 选择此方法进行记忆.
 std::vector<int> indeg;
 // BFS: 关键是想到利用入度来辅助判断该节点(课程)是否可以选择了.
 std::vector<int> FindOrder(int num_course,
