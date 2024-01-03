@@ -1,24 +1,27 @@
 #include <numeric>
 #include <vector>
 
+// 2024/01/03: 直接抄答案.
+
 class UnionFind {
  public:
-  UnionFind(int n) : id_(n) { std::iota(id_.begin(), id_.end(), 0); }
+  // iota函数可以把数组初始化为0到n-1.
+  UnionFind(int n) : ids_(n) { std::iota(ids_.begin(), ids_.end(), 0); }
 
   // 查找给定节点的祖先
   int Find(int p) const {
-    while (p != id_[p]) {
-      p = id_[p];
+    while (p != ids_[p]) {
+      p = ids_[p];
     }
     return p;
   }
 
-  void Union(int p, int q) { id_[Find(p)] = id_[Find(q)]; }
+  void Union(int p, int q) { ids_[Find(p)] = ids_[Find(q)]; }
 
   bool IsConnected(int p, int q) const { return Find(p) == Find(q); }
 
  private:
-  std::vector<int> id_;
+  std::vector<int> ids_;
 };
 
 std::vector<int> FindRedundantConnection(
