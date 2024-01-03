@@ -2,6 +2,8 @@
 #include <list>
 #include <unordered_map>
 
+// 2024/01/03: 直接抄答案.
+
 class LRUCache {
  public:
   LRUCache(int capacity) : size_(capacity) {}
@@ -19,7 +21,8 @@ class LRUCache {
     auto it = hash_.find(key);
     if (it != hash_.end()) {
       it->second->second = value;
-      return cache_.splice(cache_.begin(), cache_, it->second);
+      cache_.splice(cache_.begin(), cache_, it->second);
+      return;
     }
     cache_.insert(cache_.begin(), std::make_pair(key, value));
     hash_[key] = cache_.begin();
