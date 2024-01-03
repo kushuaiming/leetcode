@@ -2,7 +2,8 @@
 #include <string>
 #include <vector>
 
-// 2023/12/22: 直接拷贝过来的, 从评论来看, 考的频率较高, 需要注意.
+// 2023/12/22: 直接抄答案. 从评论来看, 考的频率较高, 需要注意.
+// 2024/01/03: 直接抄答案.
 class Trie {
  public:
   Trie() : children_(26), is_end_(false) {}
