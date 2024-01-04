@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include <vector>
 
+// 2024/01/04: 直接抄答案.
+
 // 此方法会超时.
 int SubarraySum(std::vector<int>& nums, int k) {
   std::vector<int> sums(nums.size() + 1, 0);
@@ -18,12 +20,13 @@ int SubarraySum(std::vector<int>& nums, int k) {
   return ans;
 }
 
+// 思路较难想到, 实现比较简单.
 // 使用一个哈希表, key 是前缀和, value 是该前缀和出现的次数.
 // 假设当前的前缀和是 prefix_sum, 那么 hash_map[prefix_sum - k] 即以当前位置结尾, 满足条件的区间个数.
 int SubarraySum2(std::vector<int>& nums, int k) {
   int count = 0, prefix_sum = 0;
   std::unordered_map<int, int> hash_map;
-  hash_map[0] = 1;
+  hash_map[0] = 1; // 初始化很关键.
   for (int num : nums) {
     prefix_sum += num;
     count += hash_map[prefix_sum - k];
