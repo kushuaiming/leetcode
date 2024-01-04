@@ -7,6 +7,8 @@
 #include <string>
 #include <unordered_map>
 
+// 2024/01/04: 直接抄答案.
+
 bool Check(const std::unordered_map<char, int>& window_counts,
            const std::unordered_map<char, int>& t_counts) {
   for (const auto& t_count : t_counts) {
@@ -22,6 +24,8 @@ bool Check(const std::unordered_map<char, int>& window_counts,
 }
 
 std::string MinWindow(const std::string& s, const std::string& t) {
+  // 可以优化成只用一个哈希表, 先把t的词频加进去然后再减掉,
+  // 保证每个t中字符对应的数量都小于等于0则check返回true.
   std::unordered_map<char, int> t_counts;
   for (const char& c : t) {
     ++t_counts[c];
@@ -45,9 +49,9 @@ std::string MinWindow(const std::string& s, const std::string& t) {
       if (t_counts.find(s[left]) != t_counts.end()) {
         --window_counts[s[left]];
       }
-      ++left;
+      ++left; // 注意在循环的最后加左指针的更新.
     }
-    ++right;
+    ++right; // 注意在循环的最后加右指针的更新.
   }
   return result_left == -1 ? "" : s.substr(result_left, min_substr_length);
 }
