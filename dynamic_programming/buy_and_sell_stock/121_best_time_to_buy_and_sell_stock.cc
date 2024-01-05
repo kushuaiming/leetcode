@@ -3,6 +3,8 @@
 #include <limits>
 #include <vector>
 
+// 2024/01/05: 自己写出来贪心算法, 但是是逆序. 维护未来最高价格.
+
 // 只可以交易一次
 int MaxProfit(const std::vector<int>& prices) {
   int history_min_price = std::numeric_limits<int>::max();
