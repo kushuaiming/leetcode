@@ -10,6 +10,8 @@ struct ListNode {
 };
 
 // 2024/01/01: 自己做出来了.
+// 2024/01/07: 自己做出来了.
+
 // 双指针
 ListNode* GetIntersectionNode(ListNode* headA, ListNode* headB) {
   ListNode* head_a = headA;
