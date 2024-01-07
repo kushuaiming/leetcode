@@ -25,6 +25,7 @@ ListNode* SwapPairs(ListNode* head) {
   return dummy_node->next;
 }
 
+// 2024/01/07: 不看答案写出来了.
 // Recursion
 ListNode* SwapPairs2(ListNode* head) {
   if (!head || !head->next) {
