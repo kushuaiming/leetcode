@@ -10,17 +10,17 @@ bool isCompleteTree(TreeNode* root) {
   }
   std::queue<TreeNode*> q;
   q.push(root);
-  bool has_null = false;
+  bool flag = false;
   while (!q.empty()) {
     int size = q.size();
     for (int i = 0; i < size; ++i) {
       TreeNode* front = q.front();
       q.pop();
       if (front == nullptr) {
-        has_null = true;
+        flag = true;
         continue;
       }
-      if (has_null) {
+      if (flag) {
         return false;
       }
       q.push(front->left);
