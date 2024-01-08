@@ -16,6 +16,8 @@
 
 #include <iostream>
 
+// 2024/01/07: 自己不看答案实现.
+
 struct ListNode {
   ListNode(int val) : val(val), next(nullptr) {}
   int val;

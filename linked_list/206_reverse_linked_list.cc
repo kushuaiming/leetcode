@@ -8,6 +8,7 @@ struct ListNode {
   ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+// 2024/01/07: 抄的答案, 注意要先递归, 再反转当前位置.
 // Recursion: 假设链表的其于部分已经被反转, 现在应该如何反转它前面的部分?
 ListNode* ReverseList(ListNode* head) {
   if (!head || !head->next) {
@@ -28,6 +29,7 @@ ListNode* ReverseList2(ListNode* head, ListNode* prev) {
   return ReverseList2(next, head);
 }
 
+// 2024/01/07: 看了一下答案. 注意要用一个next记录curr->next.
 // Iteration
 ListNode* ReverseList3(ListNode* head) {
   ListNode* prev = nullptr;

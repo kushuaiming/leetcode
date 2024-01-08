@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/05: 勉强写出来了
+
 // 每次只考虑四个间隔90度的位置, 可以进行O(1)额外空间的旋转.
 // 关键: 对于矩阵中第i行的第j个元素, 旋转后它出现在倒数第i列的第j个位置.
 // 即对于矩阵中的元素matrix[row][col], 旋转后它的新位置为matrix[col][n-row-1].
+// 其余公式可以自行推出来, 同时要注意边界条件.
 void Rotate(std::vector<std::vector<int>>& matrix) {
   int temp = 0;
   const int n = matrix.size();
