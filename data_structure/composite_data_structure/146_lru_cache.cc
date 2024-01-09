@@ -2,11 +2,12 @@
 #include <list>
 #include <unordered_map>
 
+// 2024/01/09: 自己写出来了, 但是参考了 cpp reference.
 // 2024/01/03: 直接抄答案.
 
 class LRUCache {
  public:
-  LRUCache(int capacity) : size_(capacity) {}
+  LRUCache(int capacity) : capacity_(capacity) {}
 
   int get(int key) {
     auto it = hash_.find(key);
@@ -24,9 +25,10 @@ class LRUCache {
       cache_.splice(cache_.begin(), cache_, it->second);
       return;
     }
+    // 也可以用 cache_.push_front(std::make_pair(key, value));
     cache_.insert(cache_.begin(), std::make_pair(key, value));
     hash_[key] = cache_.begin();
-    if (cache_.size() > size_) {
+    if (cache_.size() > capacity_) {
       hash_.erase(cache_.back().first);
       cache_.pop_back();
     }
@@ -35,7 +37,7 @@ class LRUCache {
  private:
   std::unordered_map<int, std::list<std::pair<int, int>>::iterator> hash_;
   std::list<std::pair<int, int>> cache_;
-  int size_;
+  int capacity_;
 };
 
 int main(int argc, char* argv[]) {
