@@ -18,6 +18,7 @@ bool IsSymmetric(TreeNode* root) {
   return IsSymmetric(root->left, root->right);
 }
 
+// 2024/01/09: 自己写出来.
 bool IsSymmetric(TreeNode* left, TreeNode* right) {
   if (left == nullptr && right == nullptr) {
     return true;
