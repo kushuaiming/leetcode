@@ -4,6 +4,7 @@
 
 #include "tree_node.h"
 
+// 2024/01/09: 自己写出来.
 std::unordered_map<int, int> index;
 // 注意函数参数的选择. [preorder_left, preorder_right], [inorder_left,
 // inorder_right], 都是闭区间.
