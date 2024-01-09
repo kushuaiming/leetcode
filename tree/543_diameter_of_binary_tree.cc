@@ -10,6 +10,7 @@ struct TreeNode {
       : val(x), left(left), right(right) {}
 };
 
+// 2024/01/07: 自己做出来了从上到下的版本, 没有做出来从下到上的版本.
 // 2024/01/02: 在做了110的前提下可以自己写出来.
 int res = 0;
 
@@ -25,5 +26,5 @@ int Depth(TreeNode* root) {
 
 int DiameterOfBinaryTree(TreeNode* root) {
   Depth(root);
-  return res - 1;
+  return res;
 }
