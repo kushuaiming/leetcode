@@ -2,6 +2,8 @@
 #include <stack>
 #include <vector>
 
+// 2024/01/09: 直接抄答案
+
 struct TreeNode {
   int value;
   TreeNode* left;
@@ -29,14 +31,14 @@ std::vector<int> InorderTraversal(TreeNode* root) {
 
 std::vector<int> InorderTraversalIteration(TreeNode* root) {
   std::vector<int> result;
-  std::stack<TreeNode*> stack;
-  while (root != nullptr || !stack.empty()) {
+  std::stack<TreeNode*> s;
+  while (root != nullptr || !s.empty()) {
     while (root != nullptr) {
-      stack.push(root);
+      s.push(root);
       root = root->left;
     }
-    root = stack.top();
-    stack.pop();
+    root = s.top();
+    s.pop();
     result.push_back(root->value);
     root = root->right;
   }
