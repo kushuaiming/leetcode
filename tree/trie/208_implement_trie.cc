@@ -4,6 +4,7 @@
 
 // 2023/12/22: 直接抄答案. 从评论来看, 考的频率较高, 需要注意.
 // 2024/01/03: 直接抄答案.
+// 2024/01/10: 自己大致写出来了, 虽然有点瑕疵. 注意children_初始化和insert中node的更新.
 class Trie {
  public:
   Trie() : children_(26), is_end_(false) {}
