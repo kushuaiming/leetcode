@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/11: 基本自己写出来了, 细节上看了一下答案, 具体见下面的注释.
 // [left, right]
 int Search(const std::vector<int>& nums, int target) {
   int left = 0;
@@ -11,8 +12,8 @@ int Search(const std::vector<int>& nums, int target) {
     if (target == nums[mid]) {
       return mid;
     }
-    // 判断哪部分的数组是有序的
-    if (nums[mid] >= nums[0]) {
+    // 判断哪部分的数组是有序的, 注意是和数组的第一个数(&最后一个数)比较.
+    if (nums[mid] >= nums.front()) {
       if (target >= nums.front() && target < nums[mid]) {
         right = mid - 1;
       } else {
