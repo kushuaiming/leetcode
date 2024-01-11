@@ -1,6 +1,7 @@
 // 二分查找, 时间复杂度为O(log(x))
 #include <iostream>
 
+// 如果是 double 类型, right 要和 1.0 取大, 比如 0.25 的开根号是 0.5
 int MySqrt(int x) {
   int left = 0;
   int right = x;
