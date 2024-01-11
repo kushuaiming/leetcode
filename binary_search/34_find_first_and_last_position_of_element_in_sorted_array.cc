@@ -6,6 +6,7 @@
 #include <limits>
 #include <vector>
 
+// 2024/01/11: 参考了一下答案, 不是完全自己写出来.
 // [left, right]
 int lower_bound(std::vector<int>& nums, int target) {
   int left = 0;
@@ -32,7 +33,7 @@ int upper_bound(std::vector<int>& nums, int target) {
       left = mid + 1;
     }
   }
-  return left - 1;
+  return left;
 }
 
 // [left, right)
@@ -61,12 +62,13 @@ int upper_bound2(std::vector<int>& nums, int target) {
       left = mid + 1;
     }
   }
-  return left - 1;
+  return left;
 }
 
 std::vector<int> SearchRange(std::vector<int>& nums, int target) {
   int left_index = lower_bound(nums, target);
-  int right_index = upper_bound(nums, target);
+  int right_index = upper_bound(nums, target) - 1;
+  // 注意这里的判断顺序.
   if (left_index <= right_index && right_index < nums.size() &&
       nums[left_index] == target && nums[right_index] == target) {
     return std::vector<int>{left_index, right_index};
@@ -76,7 +78,7 @@ std::vector<int> SearchRange(std::vector<int>& nums, int target) {
 
 int main(int argc, char* argv[]) {
   std::vector<int> nums{5, 7, 7, 8, 8, 10};
-  std::vector<int> result = SearchRange(nums, 8);
+  std::vector<int> result = SearchRange(nums, 3);
   std::cout << result[0] << ' ' << result[1] << std::endl;
   return 0;
 }
