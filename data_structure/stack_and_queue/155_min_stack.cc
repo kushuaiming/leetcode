@@ -2,6 +2,7 @@
 #include <limits>
 #include <stack>
 
+// 2024/01/11: 不看答案自己做出来了.
 class MinStack {
  public:
   MinStack() { min_stack_.push(std::numeric_limits<int>::max()); }
