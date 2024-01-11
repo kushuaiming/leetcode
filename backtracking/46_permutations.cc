@@ -2,23 +2,23 @@
 #include <vector>
 
 // 2024/01/10: 直接抄答案.
-// [0, first - 1]是已经填过数的, [first, length - 1]是待填数的
+// [0, first - 1]是已经填过数的, [first, size - 1]是待填数的
 void Backtrack(std::vector<std::vector<int>>& result, std::vector<int>& output,
-               int first, int length) {
-  if (first == length) {
+               int first) {
+  if (first == output.size()) {
     result.push_back(output);
     return;
   }
-  for (int i = first; i < length; ++i) {
+  for (int i = first; i < output.size(); ++i) {
     std::swap(output[i], output[first]);
-    Backtrack(result, output, first + 1, length);
+    Backtrack(result, output, first + 1);
     std::swap(output[i], output[first]);
   }
 }
 
 std::vector<std::vector<int>> Permute(std::vector<int>& nums) {
   std::vector<std::vector<int>> result;
-  Backtrack(result, nums, 0, nums.size());
+  Backtrack(result, nums, 0);
   return result;
 }
 
