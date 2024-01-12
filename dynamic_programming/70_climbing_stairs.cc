@@ -1,20 +1,18 @@
 #include <iostream>
+
+// 2024/01/12: 自己实现
 int ClimbStairs(int n) {
-  if (n == 1) {
+  if (n <= 1) {
     return 1;
   }
-  if (n == 2) {
-    return 2;
-  }
+  int pre = 1;
   int pre_pre = 1;
-  int pre = 2;
-  int result = 0;
-  for (int i = 0; i < n - 2; ++i) {
-    result = pre + pre_pre;
+  for (int i = 0; i < n - 1; ++i) {
+    int cur = pre + pre_pre;
     pre_pre = pre;
-    pre = result;
+    pre = cur;
   }
-  return result;
+  return pre;
 }
 
 int main(int argc, char* argv[]) {
