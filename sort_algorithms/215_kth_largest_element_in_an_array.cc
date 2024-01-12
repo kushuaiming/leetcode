@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/12: 直接看答案.
 int Partition(std::vector<int>& nums, int left, int right) {
   int pivot = nums[right];
   int i = left - 1;
