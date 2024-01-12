@@ -1,25 +1,21 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/12: 不看答案自己实现.
+
 int Rob(std::vector<int>& nums) {
-  int n = nums.size();
-  if (n == 0) {
-    return 0;
-  }
-  if (n == 1) {
+  if (nums.size() == 1) {
     return nums[0];
   }
-  if (n == 2) {
-    return std::max(nums[0], nums[1]);
+  int n = nums.size();
+  int pre_pre = nums[0];
+  int pre = std::max(nums[0], nums[1]);
+  for (int i = 2; i < nums.size(); ++i) {
+    int cur = std::max(pre, pre_pre + nums[i]);
+    pre_pre = pre;
+    pre = cur;
   }
-  int pre2 = nums[0];
-  int pre1 = std::max(nums[0], nums[1]);
-  for (int i = 2; i < n; ++i) {
-    int cur = std::max(pre2 + nums[i], pre1);
-    pre2 = pre1;
-    pre1 = cur;
-  }
-  return pre1;
+  return pre;
 }
 
 int main(int argc, char* argv[]) {
