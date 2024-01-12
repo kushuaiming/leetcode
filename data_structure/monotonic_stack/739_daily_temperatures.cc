@@ -2,6 +2,8 @@
 #include <stack>
 #include <vector>
 
+// 2024/01/12: 看了答案提示的情况下做出来了.
+
 // 维护一个存储下标的单调栈, 从栈底到栈顶的下标对应的温度列表中的温度依次递减.
 std::vector<int> DailyTemperatures(const std::vector<int>& temperatures) {
   int n = temperatures.size();
