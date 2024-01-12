@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/12: 不看答案自己写出来.
+
 int LengthOfLIS(const std::vector<int>& nums) {
   // dp[i] represents the length of longest increasing subsequence ended with
   // nums[i].
