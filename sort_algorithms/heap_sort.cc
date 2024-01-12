@@ -1,6 +1,13 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/12: 直接看答案.
+
+// 参考 215_kth_largest_element_in_an_array
+// 常考内容, 需要自己手动实现一个堆.
+
+// 维护堆的性质.
+// 输入为一个数组nums和一个下标i.
 void MaxHeapify(std::vector<int>& nums, int i, int heap_size) {
   int left = 2 * i + 1;
   int right = 2 * i + 2;
@@ -17,20 +24,23 @@ void MaxHeapify(std::vector<int>& nums, int i, int heap_size) {
   }
 }
 
+// 建堆
 // heap_size / 2, heap_size / 2 - 1, ..., heap_size - 1 is leaf node
+// 对于所有的非叶子节点, 维护堆的性质.
 void BuildMaxHeap(std::vector<int>& nums, int heap_size) {
   for (int i = heap_size / 2 - 1; i >= 0; --i) {
     MaxHeapify(nums, i, heap_size);
   }
 }
 
+// 堆排序算法.
 void HeapSort(std::vector<int>& nums) {
   int heap_size = nums.size();
   BuildMaxHeap(nums, heap_size);
   for (int i = nums.size() - 1; i >= 1; --i) {
     std::swap(nums[0], nums[i]);
     --heap_size;
-    BuildMaxHeap(nums, heap_size);
+    MaxHeapify(nums, 0, heap_size);
   }
 }
 
