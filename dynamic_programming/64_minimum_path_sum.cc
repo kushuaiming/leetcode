@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+// 2024/01/12: 不看答案自己写出来
+
 int MinPathSum(const std::vector<std::vector<int>>& grid) {
   const int m = grid.size();
   const int n = grid[0].size();
