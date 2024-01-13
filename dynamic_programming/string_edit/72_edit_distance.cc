@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+// 2024/01/13: 不看答案自己做出来, 14min
+
 int MinDistance(const std::string& word1, const std::string& word2) {
   const int m = word1.size();
   const int n = word2.size();
