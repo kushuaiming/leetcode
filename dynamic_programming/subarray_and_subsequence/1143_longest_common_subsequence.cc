@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+// 2024/01/13: 不看答案自己做出来. 难点在与状态转移方程的推导.
+
 int LongestCommonSubsequence(const std::string& text1,
                              const std::string& text2) {
   const int m = text1.size();
