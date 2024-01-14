@@ -23,7 +23,7 @@ int Trap1(std::vector<int>& height) {
   return res;
 }
 
-// 2024/01/14: 单调栈, 直接抄答案.
+// 2024/01/14: 单调(递减)栈, 直接抄答案.
 int Trap2(std::vector<int>& height) {
   int res = 0;
   std::stack<int> stk;
