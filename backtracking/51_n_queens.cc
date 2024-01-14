@@ -2,55 +2,49 @@
 #include <unordered_set>
 #include <vector>
 
+// 2024/01/14: 直接看答案
+
+// 关键思路: 三个方向判断是否有其他皇后.
+std::unordered_set<int> column;
+std::unordered_set<int> diagonal1; // row + column为定值
+std::unordered_set<int> diagonal2; // row - column为定值
+int N;
+std::vector<int> queens;
+std::vector<std::vector<std::string>> res;
+
 std::vector<std::vector<std::string>> SolveNQueens(int n) {
-  auto solutions = std::vector<std::vector<std::string>>();
-  auto queens = std::vector<int>(n, -1);
-  // 三个方向判断是否有其他皇后.
-  auto columns = std::unordered_set<int>();
-  auto diagonals1 = std::unordered_set<int>();
-  auto diagonals2 = std::unordered_set<int>();
-  Backtrack(solutions, queens, n, 0, columns, diagonals1, diagonals2);
-  return solutions;
+  N = n;
+  queens.resize(N, -1);
+  Backtrack(0);
+  return res;
 }
 
-void Backtrack(std::vector<std::vector<std::string>> &solutions,
-               std::vector<int> &queens, int n, int row,
-               std::unordered_set<int> &columns,
-               std::unordered_set<int> &diagonals1,
-               std::unordered_set<int> &diagonals2) {
-  if (row == n) {
-    std::vector<std::string> board = GenerateBoard(queens, n);
-    solutions.push_back(board);
-  } else {
-    for (int i = 0; i < n; i++) {
-      if (columns.find(i) != columns.end()) {
-        continue;
-      }
-      int diagonal1 = row - i; // 从左上到右下, 行下标列下标之差相等
-      if (diagonals1.find(diagonal1) != diagonals1.end()) {
-        continue;
-      }
-      int diagonal2 = row + i; // 从左下到右上, 行下标列下标之和相等
-      if (diagonals2.find(diagonal2) != diagonals2.end()) {
-        continue;
-      }
-      queens[row] = i;
-      columns.insert(i);
-      diagonals1.insert(diagonal1);
-      diagonals2.insert(diagonal2);
-      Backtrack(solutions, queens, n, row + 1, columns, diagonals1, diagonals2);
-      queens[row] = -1;
-      columns.erase(i);
-      diagonals1.erase(diagonal1);
-      diagonals2.erase(diagonal2);
+void Backtrack(int row) {
+  if (row == N) {
+    res.emplace_back(GenerateBoard());
+    return;
+  }
+  for (int i = 0; i < N; ++i) {
+    if (column.count(i) || diagonal1.count(row + i) ||
+        diagonal2.count(row - i)) {
+      continue;
     }
+    column.insert(i);
+    diagonal1.insert(row + i);
+    diagonal2.insert(row - i);
+    queens[row] = i;
+    Backtrack(row + 1);
+    column.erase(i);
+    diagonal1.erase(row + i);
+    diagonal2.erase(row - i);
+    queens[row] = -1;
   }
 }
 
-std::vector<std::string> GenerateBoard(std::vector<int> &queens, int n) {
-  auto board = std::vector<std::string>();
-  for (int i = 0; i < n; i++) {
-    std::string row = std::string(n, '.');
+std::vector<std::string> GenerateBoard() {
+  std::vector<std::string> board;
+  for (int i = 0; i < N; ++i) {
+    std::string row = std::string(N, '.');
     row[queens[i]] = 'Q';
     board.push_back(row);
   }
