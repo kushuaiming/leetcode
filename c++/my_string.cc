@@ -1,4 +1,4 @@
-// 本题目来自《剑指 Offer》面试题 1
+// 本题目来自《剑指 Offer》面试题 1: 赋值运算符函数
 
 // 为MyString添加复制运算符函数.
 /* class MyString {
