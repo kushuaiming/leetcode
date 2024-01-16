@@ -1,12 +1,6 @@
 #include <iostream>
 
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+#include "list_node.h"
 
 // Iteration: 引入指针node1和node2, 不容易出错.
 // 需要画图之后再进行编程.

@@ -1,13 +1,7 @@
 #include <queue>
 #include <vector>
 
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int val) : val(val), next(nullptr) {}
-  ListNode(int val, ListNode* next) : val(val), next(next) {}
-};
+#include "list_node.h"
 
 // 2024/01/14 自己实现, 注意优先队列的定义. TODO: 学习顺序合并和分治合并.
 // 2023/12/30 可以想出思路, 但是实现有细节上的错误.

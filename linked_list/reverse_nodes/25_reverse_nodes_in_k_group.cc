@@ -1,13 +1,7 @@
 #include <tuple>
 #include <utility>
 
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+#include "list_node.h"
 
 // 2024/01/14: 直接抄答案
 // 翻转一个子链表，并且返回新的头与尾

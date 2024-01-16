@@ -1,13 +1,7 @@
 #include <iostream>
 #include <set>
 
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+#include "list_node.h"
 
 // 2024/01/01: 自己做出来了.
 // 2024/01/07: 自己做出来了.

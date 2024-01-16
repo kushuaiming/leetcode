@@ -1,12 +1,6 @@
 #include <iostream>
 
-struct ListNode {
-  int val;
-  ListNode* next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+#include "list_node.h"
 
 // 2024/01/07: 抄的答案, 注意要先递归, 再反转当前位置.
 // Recursion: 假设链表的其于部分已经被反转, 现在应该如何反转它前面的部分?
