@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+// 和 33 不同的是原始数组不是严格单调递增的.
 // [left, right]
 bool Search(std::vector<int> nums, int target) {
   if (nums.size() == 0) {

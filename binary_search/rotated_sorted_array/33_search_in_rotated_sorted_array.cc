@@ -12,7 +12,9 @@ int Search(const std::vector<int>& nums, int target) {
     if (target == nums[mid]) {
       return mid;
     }
-    // 判断哪部分的数组是有序的, 注意是和数组的第一个数(&最后一个数)比较.
+    // 判断哪部分的数组是有序的
+    // 这里写的是和数组的第一个数(&最后一个数)比较.
+    // 实际上也可以和nums[left](& nums[right])比较.
     if (nums[mid] >= nums.front()) {
       if (target >= nums.front() && target < nums[mid]) {
         right = mid - 1;
