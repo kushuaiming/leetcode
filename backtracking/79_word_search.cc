@@ -5,9 +5,9 @@
 const std::vector<std::vector<int>> directions = {
     {1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-bool Dfs(std::vector<std::vector<char>>& board,
-         std::vector<std::vector<bool>>& is_visited, const std::string& word,
-         int i, int j, int k) {
+bool Backtrack(std::vector<std::vector<char>>& board,
+               std::vector<std::vector<bool>>& is_visited,
+               const std::string& word, int i, int j, int k) {
   if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() ||
       k >= word.size()) {
     return false;
@@ -20,8 +20,8 @@ bool Dfs(std::vector<std::vector<char>>& board,
   }
   is_visited[i][j] = true;
   for (const auto& direction : directions) {
-    if (Dfs(board, is_visited, word, i + direction[0], j + direction[1],
-            k + 1)) {
+    if (Backtrack(board, is_visited, word, i + direction[0], j + direction[1],
+                  k + 1)) {
       return true;
     }
   }
@@ -35,7 +35,7 @@ bool Exist(std::vector<std::vector<char>>& board, const std::string& word) {
   std::vector<std::vector<bool>> is_visited(m, std::vector<bool>(n, false));
   for (int i = 0; i < m; ++i) {
     for (int j = 0; j < n; ++j) {
-      if (Dfs(board, is_visited, word, i, j, 0)) {
+      if (Backtrack(board, is_visited, word, i, j, 0)) {
         return true;
       }
     }
