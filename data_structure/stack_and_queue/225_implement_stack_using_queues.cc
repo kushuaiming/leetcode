@@ -31,6 +31,43 @@ class MyStack {
   std::queue<int> queue2_;
 };
 
+// 2024/01/17: 直接看答案.
+// 只使用一个栈的方法.
+class MyStack {
+ public:
+  /** Initialize your data structure here. */
+  MyStack() {}
+
+  /** Push element x onto stack. */
+  void push(int x) {
+    int n = queue_.size();
+    queue_.push(x);
+    for (int i = 0; i < n; i++) {
+      queue_.push(queue_.front());
+      queue_.pop();
+    }
+  }
+
+  /** Removes the element on top of the stack and returns that element. */
+  int pop() {
+    int r = queue_.front();
+    queue_.pop();
+    return r;
+  }
+
+  /** Get the top element. */
+  int top() {
+    int r = queue_.front();
+    return r;
+  }
+
+  /** Returns whether the stack is empty. */
+  bool empty() { return queue_.empty(); }
+
+ private:
+  std::queue<int> queue_;
+};
+
 /**
  * Your MyStack object will be instantiated and called as such:
  * MyStack* obj = new MyStack();
