@@ -32,16 +32,16 @@ std::vector<int> PostorderTraversal(TreeNode* root) {
 // 因此可以用prev来记录访问历史, 在回溯到父节点时, 可以由此来判断, 上一个访问的节点是否为右子树.
 std::vector<int> PostTraversalIteration(TreeNode* root) {
   std::vector<int> result;
-  std::stack<TreeNode*> stack;
+  std::stack<TreeNode*> stk;
   TreeNode* prev = nullptr;
-  while (root != nullptr || !stack.empty()) {
-    while (root != nullptr) {
-      stack.push(root);
+  while (root || !stk.empty()) {
+    while (root) {
+      stk.push(root);
       root = root->left;
     }
-    //从栈中弹出的元素, 左子树一定是访问完了的
-    root = stack.top();
-    stack.pop();
+    // 从栈中弹出的元素, 左子树一定是访问完了的
+    root = stk.top();
+    stk.pop();
     // 现在需要确定的是是否有右子树, 或者右子树是否访问过.
     // 如果没有右子树, 或者右子树访问完了, 也就是上一个访问的节点是右子节点时,
     // 说明可以访问当前节点.
@@ -52,7 +52,7 @@ std::vector<int> PostTraversalIteration(TreeNode* root) {
       root = nullptr;
     } else {
       // 如果右子树没有被访问, 那么将当前节点压栈, 访问右子树
-      stack.push(root);
+      stk.push(root);
       root = root->right;
     }
   }

@@ -29,15 +29,15 @@ std::vector<int> PreorderTraversal(TreeNode* root) {
 
 std::vector<int> PreorderTraversalIteration(TreeNode* root) {
   std::vector<int> result;
-  std::stack<TreeNode*> stack;
-  while (root != nullptr || !stack.empty()) {
-    while (root != nullptr) {
+  std::stack<TreeNode*> stk;
+  while (root || !stk.empty()) {
+    while (root) {
       result.push_back(root->value);
-      stack.push(root);
+      stk.push(root);
       root = root->left;
     }
-    root = stack.top();
-    stack.pop();
+    root = stk.top();
+    stk.pop();
     root = root->right;
   }
   return result;

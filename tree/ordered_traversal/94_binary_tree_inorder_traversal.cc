@@ -31,14 +31,14 @@ std::vector<int> InorderTraversal(TreeNode* root) {
 
 std::vector<int> InorderTraversalIteration(TreeNode* root) {
   std::vector<int> result;
-  std::stack<TreeNode*> s;
-  while (root != nullptr || !s.empty()) {
-    while (root != nullptr) {
-      s.push(root);
+  std::stack<TreeNode*> stk;
+  while (root || !stk.empty()) {
+    while (root) {
+      stk.push(root);
       root = root->left;
     }
-    root = s.top();
-    s.pop();
+    root = stk.top();
+    stk.pop();
     result.push_back(root->value);
     root = root->right;
   }
