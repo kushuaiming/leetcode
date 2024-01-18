@@ -2,6 +2,19 @@
 #include <vector>
 
 // 2024/01/04: 分治方法直接抄答案, 自己实现了DP的方法.
+int MaxSubArray(std::vector<int>& nums) {
+  int n = nums.size();
+  // dp[i]: 以i结尾的连续数组的最大值.
+  std::vector<int> dp(n, 0);
+  dp[0] = nums[0];
+  int res = nums[0];
+  for (int i = 1; i < n; ++i) {
+    dp[i] = nums[i] + std::max(dp[i - 1], 0);
+    res = std::max(res, dp[i]);
+  }
+  return res;
+}
+
 // 分治方法类似于"线段树求解最长公共上升子序列问题"的pushUp操作.
 struct Status {
   Status(int l_sum, int r_sum, int m_sum, int i_sum)
