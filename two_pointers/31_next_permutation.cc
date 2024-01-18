@@ -5,6 +5,7 @@
 
 void NextPermutation(std::vector<int>& nums) {
   // 1. 从后向前找到第一个nums[i] < nums[i + 1]的位置
+  // 关键特征: [i+1, n)必然是下降排列.
   int i = nums.size() - 2;
   while (i >= 0 && nums[i] >= nums[i + 1]) {
     --i;
