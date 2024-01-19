@@ -34,7 +34,7 @@ int MaxProfit(int k, const std::vector<int>& prices) {
 
 // 高赞题解:
 // 定义买一次再卖一次才算一次交易.
-// k从0开始, buy[0]发生再sell[0]之前, sell[0]发生在buy[1]之前.
+// k从0开始, buy[0]发生在sell[0]之前, sell[0]发生在buy[1]之前.
 // buy[k]是持有第k次交易的股票时(可以是今天买的, 也可以是之前买的)获取的最大利润.
 // sell[k]是不持有第k次交易的股票时(可以是今天卖的, 也可以是之前卖的)获取的最大利润. 
 // buy数组的长度即为k, buy[0]和sell[0]都需要维护, 最后返回sell[k-1].
@@ -43,22 +43,20 @@ int MaxProfit2(int k, const std::vector<int>& prices) {
   if (days < 2 || k == 0) {
     return 0;
   }
-  std::vector<int> buy(k, -prices[0]);
-  std::vector<int> sell(k, -prices[0]);
-  for (int i = 1; i < days; ++i) {
-    buy[0] = std::max(buy[0], -prices[i]);
-    sell[0] = std::max(sell[0], buy[0] + prices[i]);
-    for (int j = 1; j < k; ++j) {
-      buy[j] = std::max(buy[j], sell[j - 1] - prices[i]);
-      sell[j] = std::max(sell[j], buy[j] + prices[i]);
+  std::vector<int> buy(k + 1, INT_MIN);
+  std::vector<int> sell(k + 1, 0);
+  for (int i = 0; i < days; ++i) {
+    for (int j = 1; j <= k; ++j) {
+      buy[j] = std::max(buy[j], sell[j - 1] - prices[i]); // 注意这里的sell[j-1]用的是当天(i)的数据.
+      sell[j] = std::max(sell[j], buy[j] + prices[i]);    // 注意这里的buy[j]用的是当天(i)的数据.
     }
   }
-  return sell[k - 1];
+  return sell[k];
 }
 
 int main(int argc, char* argv[]) {
   const std::vector<int> prices = {3, 2, 6, 5, 0, 3};
   const int k = 2;
-  std::cout << MaxProfit(k, prices) << std::endl;
+  std::cout << MaxProfit2(k, prices) << std::endl;
   return 0;
 }
