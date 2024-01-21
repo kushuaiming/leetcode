@@ -95,35 +95,28 @@ int LargestRectangleArea3(std::vector<int>& heights) {
   return area;
 }
 
+// 2024/01/21: 自己实现.
 // 视频题解: 单调(递增)栈(加哨兵版本)
 int LargestRectangleArea4(std::vector<int>& heights) {
-  int n = heights.size();
-  if (n == 0) {
-    return 0;
-  }
-  if (n == 1) {
-    return heights[0];
-  }
-
   // 在原始数组的两边加上两个值为0的数作为哨兵(sentinel)
-  int area = 0;
-  std::vector<int> new_heights(n + 2);
-  for (int i = 0; i < n; ++i) {
-    new_heights[i + 1] = heights[i];
-  }
-  n += 2;
-  heights = new_heights;
+  std::vector<int> sentry_heights;
+  sentry_heights.push_back(0);
+  sentry_heights.insert(sentry_heights.begin() + 1, heights.begin(),
+                        heights.end());
+  sentry_heights.push_back(0);
 
+  // 维护一个单调递增的栈.
   std::stack<int> stk;
-  stk.push(0);
-  for (int i = 1; i < n; ++i) {
-    while (heights[i] < heights[stk.top()]) {
-      int height = heights[stk.top()];
+  stk.push(sentry_heights[0]);
+  int res = 0;
+  for (int i = 1; i < sentry_heights.size(); ++i) {
+    while (sentry_heights[i] < sentry_heights[stk.top()]) {
+      int height = sentry_heights[stk.top()];
       stk.pop();
       int width = i - stk.top() - 1;
-      area = std::max(area, width * height);
+      res = std::max(res, height * width);
     }
     stk.push(i);
   }
-  return area;
+  return res;
 }
