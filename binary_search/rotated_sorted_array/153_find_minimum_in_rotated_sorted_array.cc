@@ -9,12 +9,11 @@ int FindMin(std::vector<int>& nums) {
   int min_num = nums.front();
   while (left <= right) {
     int mid = left + (right - left) / 2;
+    min_num = std::min(min_num, nums[mid]);
     if (nums[mid] >= nums.front()) {
       left = mid + 1;
-      min_num = std::min(min_num, nums[mid]);
     } else {
       right = mid - 1;
-      min_num = std::min(min_num, nums[mid]);
     }
   }
   return min_num;
