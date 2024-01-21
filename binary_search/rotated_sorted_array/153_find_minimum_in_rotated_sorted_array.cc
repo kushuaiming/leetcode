@@ -5,6 +5,7 @@
 
 int FindMin(std::vector<int>& nums) {
   int left = 0, right = nums.size() - 1;
+  // 注意: 考虑到没有旋转的情况, 初始化为第一个数.
   int min_num = nums.front();
   while (left <= right) {
     int mid = left + (right - left) / 2;
