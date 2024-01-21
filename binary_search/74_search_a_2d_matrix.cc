@@ -1,5 +1,6 @@
 #include <vector>
 
+// 2024/01/21: 不看答案自己写出来.
 // 2024/01/07: 不看答案自己写出来.
 
 bool SearchMatrix(std::vector<std::vector<int>>& matrix, int target) {
@@ -8,6 +9,7 @@ bool SearchMatrix(std::vector<std::vector<int>>& matrix, int target) {
   int left = 0, right = m * n - 1;
   while (left <= right) {
     int mid = left + (right - left) / 2;
+    // 注意i和j的计算
     int i = mid / n;
     int j = mid % n;
     if (matrix[i][j] < target) {
