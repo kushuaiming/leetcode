@@ -1,5 +1,6 @@
 #include <vector>
 
+// 2024/01/21: 自己写出来.
 // 2024/01/11: 直接看答案
 int SearchInsert(std::vector<int>& nums, int target) {
   int left = 0, right = nums.size() - 1;
