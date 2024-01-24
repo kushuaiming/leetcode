@@ -24,29 +24,10 @@ std::vector<int> MaxSlidingWindow(std::vector<int>& nums, int k) {
   return ans;
 }
 
-// 单调队列, 使用双端队列. 时间复杂度为O(n).
-std::vector<int> MaxSlidingWindow2(std::vector<int>& nums, int k) {
-  std::deque<int> q;
-  std::vector<int> ans;
-  for (int i = 0; i < static_cast<int>(nums.size()); ++i) {
-    while (!q.empty() && nums[i] >= nums[q.back()]) {
-      q.pop_back();
-    }
-    while (!q.empty() && q.front() < i - k + 1) {
-      q.pop_front();
-    }
-    q.push_back(i);
-    if (i >= k - 1) {
-      ans.push_back(nums[q.front()]);
-    }
-  }
-  return ans;
-}
-
 int main(int argc, char* argv[]) {
   std::vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
   const int k = 3;
-  std::vector<int> results = MaxSlidingWindow2(nums, k);
+  std::vector<int> results = MaxSlidingWindow(nums, k);
   for (int result : results) {
     std::cout << result << std::endl;
   }
