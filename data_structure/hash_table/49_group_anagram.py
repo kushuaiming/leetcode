@@ -18,6 +18,18 @@ def group_anagrams(strs: List[str]) -> List[List[str]]:
     
     return list(anagram_dict.values())
 
+# 2026/01/10: 更主流的做法, 用排序后的字符串作为字典的 key, 这里要注意要先排序后拼接回字符串. 注意最后返回值的写法.
+def group_anagrams2(strs: List[str]) -> List[List[str]]:
+    anagram_dict = {}
+    for word in strs:
+        sorted_word = "".join(sorted(word))
+        if sorted_word not in anagram_dict:
+            anagram_dict[sorted_word] = []
+
+        anagram_dict[sorted_word].append(word)
+
+    return list(anagram_dict.values())
+
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-group_anagrams_result = group_anagrams(strs)
+group_anagrams_result = group_anagrams2(strs)
 print(group_anagrams_result)
