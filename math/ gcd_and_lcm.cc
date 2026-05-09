@@ -1,10 +1,10 @@
-// 最大公因数(greatest common divisor, gcd).
+// 最大公因数(GCD, Greatest Common Divisor).
 int Gcd(int a, int b) { return b == 0 ? a : Gcd(b, a % b); }
 
-// 最小公倍数(least common multiple, lcm).
+// 最小公倍数(LCM, Least Common Multiple).
 int Lcm(int a, int b) { return a * b / Gcd(a, b); }
 
-// 扩展欧几里得算法(extended gcd)
+// 扩展欧几里得算法(Extended GCD)
 // 在求得a和b最大公因数的同时, 也得到它们的系数x和y, 使得ax+by=gcd(a,b)
 int Xgcd(int a, int b, int& x, int& y) {
   if (b == 0) {
