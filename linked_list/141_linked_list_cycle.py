@@ -16,9 +16,11 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     return False
 
 
+# 2026/05/13: 快慢指针, 直接抄答案.
 def has_cycle2(head: Optional[ListNode]) -> bool:
     if head is None or head.next is None:
         return False
+    # 避免初始状态两指针相等, 这是 Floyd's Cycle Detection 的标准实现方式.
     fast = head.next
     slow = head
     while fast != slow:
