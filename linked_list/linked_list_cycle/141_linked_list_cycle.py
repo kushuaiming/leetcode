@@ -1,6 +1,5 @@
 from typing import Optional
-from typing import List
-from list_node import ListNode
+from linked_list.list_node import ListNode, create_cycle_list
 
 
 # 2026/05/13: 自己写出答案, 时间空间复杂度都是 O(n).
@@ -21,6 +20,7 @@ def has_cycle2(head: Optional[ListNode]) -> bool:
     if head is None or head.next is None:
         return False
     # 避免初始状态两指针相等, 这是 Floyd's Cycle Detection 的标准实现方式.
+    # 也可以将初始 Fast & Slow 状态设置成相等, 使用 while True + break 的方式进行判断.
     fast = head.next
     slow = head
     while fast != slow:
@@ -29,21 +29,6 @@ def has_cycle2(head: Optional[ListNode]) -> bool:
         fast = fast.next.next
         slow = slow.next
     return True
-
-
-def create_cycle_list(nums: List, pos: int) -> Optional[ListNode]:
-    dummy = ListNode(0)
-    curr = dummy
-    cycle_node = None
-    for i in range(len(nums)):
-        curr.next = ListNode(nums[i])
-        curr = curr.next
-        if i == pos:
-            cycle_node = curr
-        if i == len(nums) - 1:
-            curr.next = cycle_node
-
-    return dummy.next
 
 
 head = [3, 2, 0, -4]
