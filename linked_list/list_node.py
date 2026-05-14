@@ -40,4 +40,5 @@ def print_list_node(head: ListNode) -> None:
     while curr:
         vals.append(str(curr.val))
         curr = curr.next
+    vals.append("N")
     print(" -> ".join(vals))
