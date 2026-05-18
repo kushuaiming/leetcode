@@ -26,3 +26,24 @@ def create_tree_node(vals: List) -> Optional[TreeNode]:
             queue.append(node.right)
         i += 1
     return root
+
+
+def print_tree_node(root: Optional[TreeNode]) -> None:
+    res = []
+    queue = deque()
+    queue.append(root)
+
+    while len(queue) > 0:
+        for _ in range(len(queue)):
+            curr = queue.popleft()
+            if curr is not None:
+                res.append(str(curr.val))
+                queue.append(curr.left)
+                queue.append(curr.right)
+            else:
+                res.append("None")
+
+    while res and res[-1] == "None":
+        res.pop()
+
+    print(res)
