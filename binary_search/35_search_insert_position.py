@@ -17,6 +17,22 @@ def search_insert(nums: List[int], target: int) -> int:
     return left
 
 
+# 补充左闭右开的版本, [left, right)
+def search_insert2(nums: List[int], target: int) -> int:
+    left, right = 0, len(nums)
+
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] < target:
+            left = mid + 1
+        elif nums[mid] > target:
+            right = mid
+        else:
+            return mid
+
+    return left
+
+
 nums = [1, 3, 5, 6]
-target = -1
-print(search_insert(nums, target))
+target = 4
+print(search_insert2(nums, target))
