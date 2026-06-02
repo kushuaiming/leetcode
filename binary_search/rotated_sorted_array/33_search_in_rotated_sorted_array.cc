@@ -1,7 +1,7 @@
-// 将数组从中间分开成左右两部分的时候, 一定有一部分的数组是有序的
 #include <iostream>
 #include <vector>
 
+// 将数组从中间分开成左右两部分的时候, 一定有一部分的数组是有序的.
 // 2024/01/11: 基本自己写出来了, 细节上看了一下答案, 具体见下面的注释.
 // [left, right]
 int Search(const std::vector<int>& nums, int target) {
