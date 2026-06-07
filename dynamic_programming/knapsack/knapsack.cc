@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 
-// 0-1背包问题: 限定每种物品只能选0个或者1个.
-// N个物品和容量为W的背包.
+// 0-1 背包问题: 限定每种物品只能选 0 个或者 1 个.
+// N 个物品和容量为 W 的背包.
 // 求可以装得物品的最大价值.
 int knapsack0(const std::vector<int>& weights, const std::vector<int>& values,
              int N, int W) {
-  // dp[i][j]表示前i件物品体积不超过j的情况下能达到的最大价值.
+  // dp[i][j]表示前 i 件物品体积不超过 j 的情况下能达到的最大价值.
   std::vector<std::vector<int>> dp(N + 1, std::vector<int>(W + 1, 0));
   for (int i = 1; i <= N; ++i) {
     const int weight = weights[i - 1];
